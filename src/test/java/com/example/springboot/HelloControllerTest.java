@@ -22,8 +22,25 @@ public class HelloControllerTest {
 
 	@Test
 	public void getHello() throws Exception {
-		mvc.perform(MockMvcRequestBuilders.get("/").accept(MediaType.APPLICATION_JSON))
-				.andExpect(status().isOk())
-				.andExpect(content().string(equalTo("Greetings from Spring Boot!")));
+		mvc.perform(MockMvcRequestBuilders.get("/welcome").accept(MediaType.APPLICATION_JSON))
+				.andExpect(status().isOk()).andExpect(content().string(equalTo("Greetings from Spring Boot!")));
+	}
+
+	@Test
+	public void unzipFiles_Test() throws Exception {
+		mvc.perform(MockMvcRequestBuilders.get("/unzip").accept(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
+	}
+
+	@Test
+	public void readCSV_Test() throws Exception {
+		mvc.perform(MockMvcRequestBuilders.get("/readcsv").accept(MediaType.APPLICATION_JSON))
+				.andExpect(status().isOk());
+
+	}
+
+	@Test
+	public void missingFiles_Test() throws Exception {
+		mvc.perform(MockMvcRequestBuilders.get("/missingfiles").accept(MediaType.APPLICATION_JSON))
+				.andExpect(status().isOk());
 	}
 }
