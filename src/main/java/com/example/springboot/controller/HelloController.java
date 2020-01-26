@@ -13,8 +13,14 @@ import com.example.springboot.util.UnzipUtility;
 @RestController
 public class HelloController {
 
+	@RequestMapping("/welcome")
+	public String index() {
+		final String greeting = "Greetings from Spring Boot!";
+		return greeting;
+	}
+	
 	@RequestMapping("/unzip")
-	public ArrayList<String> index() {
+	public ArrayList<String> unzipFiles() {
 		final String zipFilePath = "src/main/resources/compressed.zip";
 		final String destDir = "src/main/resources";
 		ArrayList<String> filenames = new ArrayList<>();
