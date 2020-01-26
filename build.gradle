@@ -17,6 +17,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	// end::actuator[]
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-devtools'
 	implementation "com.opencsv:opencsv:5.0"
 	// tag::tests[]
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
@@ -28,4 +29,8 @@ dependencies {
 
 test {
 	useJUnitPlatform()
+}
+
+bootWar {
+	excludeDevtools = false
 }
